@@ -42,7 +42,7 @@
     width: 4.5rem;
     content: "";
     display: block;
-    transition: all 0.4s ease-out;
+    transition: all 0.3s ease-out;
     cursor: pointer;
   }
 
@@ -73,9 +73,11 @@
 }
 
 .navigation__nav {
+  box-sizing: border-box;
   position: fixed;
   height: 100vh;
 
+  overflow: hidden;
   width: 0;
   opacity: 0;
   top: 0;
@@ -90,7 +92,10 @@
     list-style: none;
   }
 }
+
 .navigation__link {
+  box-sizing: border-box;
+  width: 100%;
   &:link,
   &:visited {
     margin: 1rem;
@@ -124,6 +129,7 @@
 }
 
 .navigation__nav--active {
+  // display: inline-block;
   width: 100%;
   opacity: 1;
 }
