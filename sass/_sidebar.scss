@@ -1,0 +1,131 @@
+.navigation__background {
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  height: 8rem;
+  width: 8rem;
+  background-image: radial-gradient(#d3b38b, #9c6e36);
+  border-radius: 50%;
+  z-index: 100;
+  transition: all 0.7s ease-out;
+
+  display: flex;
+  justify-content: center;
+
+  @media only screen and (max-width: $bp-small) {
+    top: 4rem;
+    right: 4rem;
+    height: 8rem;
+    width: 8rem;
+  }
+}
+
+.navigation__toggle {
+  position: fixed;
+  top: 4rem;
+  right: 5.7rem;
+  border: none;
+  border-radius: 0;
+
+  background-color: #fff;
+  height: 3px;
+  width: 4.5rem;
+  margin-top: calc(4rem);
+  z-index: 200;
+  outline: none;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    background-color: #fff;
+    height: 3px;
+    width: 4.5rem;
+    content: "";
+    display: block;
+    transition: all 0.4s ease-out;
+    cursor: pointer;
+  }
+
+  &::before {
+    transform: translateY(-1.5rem);
+  }
+  &::after {
+    transform: translateY(1.3rem);
+  }
+
+  //the animation
+  &.close {
+    background-color: transparent;
+  }
+  &.close::before {
+    transform: translateY(0.4rem) rotate(135deg);
+  }
+  &.close::after {
+    transform: translateY(0) rotate(-135deg);
+  }
+  @media only screen and (max-width: $bp-small) {
+    top: 4rem;
+    right: 5.7rem;
+
+    height: 3px;
+    width: 4.5rem;
+  }
+}
+
+.navigation__nav {
+  position: fixed;
+  height: 100vh;
+
+  width: 0;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  z-index: 250;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  .navigation__list {
+    @include centerHV;
+
+    padding-inline-start: 0px;
+    list-style: none;
+  }
+}
+.navigation__link {
+  &:link,
+  &:visited {
+    margin: 1rem;
+    display: inline-block;
+    font-size: 3.5rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-image: linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 50%,
+      white 50%
+    );
+    background-size: 233%;
+    transition: all 0.5s;
+  }
+
+  &:hover,
+  &:active {
+    background-position: 100%;
+    color: black;
+    transform: translateX(1rem);
+  }
+}
+//active nav
+.navigation__bg--active {
+  transform: scale(70);
+}
+
+.navigation__nav--active {
+  width: 100%;
+  opacity: 1;
+}
+
+//navigation function
